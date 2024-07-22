@@ -12,13 +12,13 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	const char *p;
-	va_list ap;
+	va_list args;
 	sp_t specifiers[] = {
-		{'c', print_char},
+		{'c', _print_char},
 		{'d', print_integer},
 		{'i', print_integer},
 		{'s', print_string},
-		{'%', print_percent},
+		{'%', _print_percent},
 		{'\0', NULL}
 	};
 
@@ -26,9 +26,9 @@ int _printf(const char *format, ...)
 
 	for (p = format; *p != '\0'; p++) {
 		if (*p == '%') {
-			p++; // Skip '%'
+			p++; 
 			if (*p == '\0') {
-				// If '%' is the last character, print '%'
+				
 				count += _putchar('%');
 				break;
 			}
@@ -49,6 +49,6 @@ int _printf(const char *format, ...)
 		}
 	}
 
-	va_end(ap);
-	return count;
+	va_end(args);
+	return (0);
 }
