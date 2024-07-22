@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
+
 /**
  * print_char - Prints a character
  * @ap: The va_list containing the character to print
