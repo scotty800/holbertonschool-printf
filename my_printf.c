@@ -1,11 +1,6 @@
 #include <stdarg.h>
-#include <stdio.h>
-#include "holberton.h"
-
-typedef struct specifier {
-    char spec;
-    void (*func)(va_list);
-} specifier_t;
+#include <unistd.h>
+#include "main.h"
 
 /**
  * _printf - produces output according to a format
@@ -17,39 +12,43 @@ int _printf(const char *format, ...)
 {
     int count = 0;
     const char *p;
-    va_list args;
-    specifier_t specifiers[] = {
+    va_list ap;
+    sp_t specifiers[] = {
         {'c', print_char},
-        {'f', print_float},
         {'d', print_integer},
         {'i', print_integer},
         {'s', print_string},
+        {'%', print_percent},
         {'\0', NULL}
     };
 
-    va_start(args, format);
+    va_start(ap, format);
 
     for (p = format; *p != '\0'; p++) {
         if (*p == '%') {
-            p++;
+            p++; // Skip '%'
+            if (*p == '\0') {
+                // If '%' is the last character, print '%'
+                count += _putchar('%');
+                break;
+            }
             int i = 0;
-            while (specifiers[i].spec != '\0') {
-                if (*p == specifiers[i].spec) {
-                    specifiers[i].func(args);
+            while (specifiers[i].specifier != '\0') {
+                if (*p == specifiers[i].specifier) {
+                    count += specifiers[i].print_func(ap);
                     break;
                 }
                 i++;
             }
-            if (specifiers[i].spec == '\0') {
-                putchar('%');
-                putchar(*p);
+            if (specifiers[i].specifier == '\0') {
+                count += _putchar('%');
+                count += _putchar(*p);
             }
         } else {
-            putchar(*p);
+            count += _putchar(*p);
         }
-        count++;
     }
 
-    va_end(args);
+    va_end(ap);
     return count;
 }
