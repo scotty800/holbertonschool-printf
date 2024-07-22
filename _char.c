@@ -4,12 +4,13 @@
 
 /**
  * print_char - Prints a character
- * @ap: The va_list containing the character to print
- *
- * Return: void
+ * @args: The va_list containing the character to print
+ * Return: Always returns 1 to indicate that one character was printed.
  */
-void print_char(va_list ap)
+
+int print_char(va_list args)
 {
-	_putchar(va_arg(ap, int));
+	_putchar(va_arg(args, int));
+
 	return (1);
 }
