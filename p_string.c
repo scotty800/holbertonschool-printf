@@ -10,14 +10,19 @@
  */
 void print_string(va_list ap)
 {
+	int count;
 	char *s = va_arg(ap, char *);
 
-	if (!s)
-		s = "(nil)";
+	if (s == NULL)
+		s = ("NULL");
 
 	while (s*)
 	{
-		_putchar(*s++);
+		_putchar(*s);
+		s++;
+		count++;
 	}
+
+	return (count);
 
 }
