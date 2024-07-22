@@ -3,52 +3,50 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format
- * @format: format string containing the characters and the specifiers
- * 
- * Return: the number of characters printed (excluding the null byte)
+ * _printf - Custom implementation of printf function
+ * @format: The format string containing format specifiers
+ * @...: The values to format and print
+ *  Return: The total number of characters printed
  */
+
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	const char *p;
 	va_list args;
+	int index = 0;
+	int count;
 	sp_t specifiers[] = {
-		{'c', _print_char},
-		{'d', print_integer},
-		{'i', print_integer},
+		{'c', print_char},
 		{'s', print_string},
-		{'%', _print_percent},
+		{'%', print_percent},
 		{'\0', NULL}
 	};
 
-	va_start(ap, format);
+	va_start(args, format);
 
-	for (p = format; *p != '\0'; p++) {
-		if (*p == '%') {
-			p++; 
-			if (*p == '\0') {
-				
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '\0')
 				count += _putchar('%');
+			break;
+
+			for (; specifiers[index].specifi; index++)
+			{
+				if (*format == specifiers[index].specifi)
+					count += specifiers[index].print_func(args);
 				break;
 			}
-			int i = 0;
-			while (specifiers[i].specifi != '\0') {
-				if (*p == specifiers[i].specifi) {
-					count += specifiers[i].print_func(ap);
-					break;
-				}
-				i++;
-			}
-			if (specifiers[i].specifi == '\0') {
-				count += _putchar('%');
-				count += _putchar(*p);
-			}
-		} else {
-			count += _putchar(*p);
-		}
-	}
 
+			if (specifiers[index].specifi == '\0')
+				count += _putchar('%');
+			count += _putchar(*format);
+		}
+		else
+			count += _putchar(*format);
+		format++;
+	}
 	va_end(args);
-	return (0);
+	return (count);
 }
