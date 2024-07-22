@@ -33,14 +33,14 @@ int _printf(const char *format, ...)
                 break;
             }
             int i = 0;
-            while (specifiers[i].specifier != '\0') {
-                if (*p == specifiers[i].specifier) {
+            while (specifiers[i].specifi != '\0') {
+                if (*p == specifiers[i].specifi) {
                     count += specifiers[i].print_func(ap);
                     break;
                 }
                 i++;
             }
-            if (specifiers[i].specifier == '\0') {
+            if (specifiers[i].specifi == '\0') {
                 count += _putchar('%');
                 count += _putchar(*p);
             }
