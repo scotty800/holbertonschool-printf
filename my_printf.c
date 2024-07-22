@@ -12,8 +12,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int index = 0;
-	int count;
+	int index = 0, j;
 	sp_t specifiers[] = {
 		{'c', print_char},
 		{'s', print_string},
@@ -23,30 +22,26 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	while (*format)
+	while (format && format[index])
 	{
-		if (*format == '%')
+		if (format[index] == '%')
 		{
-			format++;
-			if (*format == '\0')
-				count += _putchar('%');
-			break;
-
-			for (; specifiers[index].specifi; index++)
+			index++;
+			j = 0;
+			while (specifiers[j].specifi)
 			{
-				if (*format == specifiers[index].specifi)
-					count += specifiers[index].print_func(args);
-				break;
+				if (format[index] == specifiers[j].specifi)
+				{
+					specifiers[j].print_func(args);
+					break;
+				}
+				j++;
 			}
-
-			if (specifiers[index].specifi == '\0')
-				count += _putchar('%');
-			count += _putchar(*format);
 		}
 		else
-			count += _putchar(*format);
-		format++;
+			_putchar(format[index]);
+		index++;
 	}
 	va_end(args);
-	return (count);
+	return (0);
 }
