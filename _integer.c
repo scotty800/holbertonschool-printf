@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdarg.h>
+#include "main.h"
+
 /**
  * print_integer - Prints an integer
  * @ap: The va_list containing the integer to print
