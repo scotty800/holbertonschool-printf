@@ -13,5 +13,10 @@ void print_string(va_list ap)
 
 	if (!s)
 		s = "(nil)";
-	printf("%s", s);
+
+	while (s*)
+	{
+		_putchar(*s++);
+	}
+
 }

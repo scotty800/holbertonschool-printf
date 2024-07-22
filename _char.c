@@ -8,5 +8,6 @@
  */
 void print_char(va_list ap)
 {
-	printf("%c", va_arg(ap, int));
+	_putchar(va_arg(ap, int));
+	return (1);
 }
