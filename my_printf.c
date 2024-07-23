@@ -9,19 +9,36 @@
  *  Return: The total number of characters printed
  */
 
+static int (*print_format(const char *format)) (va_list)
+{
+	int jindex = 0;
+
+	sp_t specifiers[] = {
+                {'c', print_char},
+                {'s', print_string},
+                {'%', print_percent},
+                {'\0', NULL}
+
+        };
+
+	while (specifiers[jindex].specifi != NULL)
+	{
+		if (specifiers[jindex].specifi == *format)
+		{
+			return (specifiers[jindex].print_func);
+		}
+		jindex++;
+	}
+
+	return (NULL);
+}
+
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int index = 0, j;
 	int count = 0;
-
-	sp_t specifiers[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'\0', NULL}
-
-	};
+	int (*print_func)(va_list args);
 
 	 if (!format)
                 return (-1);
@@ -38,16 +55,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 
-			j = 0;
-			while (specifiers[j].specifi)
-			{
-				if (format[index] == specifiers[j].specifi)
-				{
-					count = count + specifiers[j].print_func(args);
-					break;
-				}
-				j++;
-			}
+			strfunc = print_format(
 
 			if (specifiers[j].specifi == '\0')
 			{
