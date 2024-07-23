@@ -51,8 +51,7 @@ int _printf(const char *format, ...)
 
 			if (specifiers[j].specifi == '\0')
 			{
-				count = count + print_non('%', '%');
-				count = count + _putchar(format[index]);
+				count = count + print_non('%', format[index]);
 			}
 		}
 		else
