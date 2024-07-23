@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int index = 0, j;
-	int count;
+	int count = 0;
 	sp_t specifiers[] = {
 		{'c', print_char},
 		{'s', print_string},
