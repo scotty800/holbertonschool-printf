@@ -23,11 +23,13 @@ typedef struct format_sp
 } sp_t;
 
 int print_char(va_list args);
-void print_integer(va_list ap);
 int print_string(va_list args);
 int printf(const char *format, ...);
 int print_percent(va_list args);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_non(char num1, char num2);
+int print_int(va_list ap);
+int print_dec(va_list ap);
+
 #endif
