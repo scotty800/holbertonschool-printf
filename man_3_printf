@@ -1,34 +1,63 @@
-.TH my_printf.c 1 my_printf.c \-0.1
+.TH _printf "26 July 2024" 1 _printf \-0.1
+
 .SH NAME
 .B _printf
-- +++++++++++++++++++++++++++++++++++++++++++++++
+
+
 .SH SYNOPSIS
--_printf \-int _printf(const char *format, ...)
+int _printf(const char *format, ...)
+#include <main.h>
+
 .SH DESCRIPTION 
-.B my_printf.c
-
-\\\ backslash 
-
-\\n new line 
-
-\\" double quote 
-
-++++++++++++++++++++++++++++++++++++++++++++++++++
+.B _printf
+is a custom implementation of the standard `printf` function. It takes a format string and a variable number of arguments, then outputs the formatted string to the standard output
 
 .SH OPTIONS
 .TP
 .BI \-%c
-my_printf.c print character 
+print character 
 .TP 
 .BI \-%s
-my_printf.c prints string
+prints string
 .TP
-.BI \-%
-my_printf.c prints percents 
+.BI \-%%
+prints a literal '%' character
 .TP 
 .BI \-%d
-my_printf.c prints integer positive 
+prints decimal
 .TP
 .BI \-%i
-my_printf.c prints prints integer negative 
+prints integer
 
+.SH RETURN VALUE
+The function returns the total number of characters printed. If an error occurs, the function returns \-1.
+
+SH EXAMPLES
+.B Example 1: Printing a character
+.PP
+.EX
+_printf("Character: %c\n", 'A');
+.EE
+
+.B Example 2: Printing a string
+.PP
+.EX
+_printf("String: %s\n", "Hello, world!");
+.EE
+
+.B Example 3: Printing an integer
+.PP
+.EX
+_printf("Integer: %d\n", 123);
+.EE
+
+.B Example 4: Printing a percent sign
+.PP
+.EX
+_printf("Percent: %%\n");
+.EE
+
+.SH AUTHOR
+Yannis Ranguin
+Scotty Ndanga
+Fabio Dejieux
