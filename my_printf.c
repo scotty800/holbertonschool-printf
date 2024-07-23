@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[index] == specifiers[j].specifi)
 				{
-					specifiers[j].print_func(args);
+					count = count + specifiers[j].print_func(args);
 					break;
 				}
 				j++;
@@ -47,9 +47,9 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-			_putchar(format[index]);
+			count = count + _putchar(format[index]);
 		index++;
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }
