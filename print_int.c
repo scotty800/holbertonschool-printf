@@ -9,23 +9,23 @@
  */
 int print_int(va_list ap)
 {
-    int n = va_arg(ap, int);
-    int num = n;
-    int len = 0;
-    int div = 1;
+	int n = va_arg(ap, int);
+	int num = n;
+	int len = 0;
+	int div = 1;
 
-    if (n < 0)
-    {
-        len += _putchar('-');
-        num = -num;
-    }
-    while (num / div > 9)
-        div *= 10;
-    while (div != 0)
-    {
-        len += _putchar((num / div) + '0');
-        num %= div;
-        div /= 10;
-    }
-    return (len);
-}    
+	if (n < 0)
+	{
+		len += _putchar('-');
+		num = -num;
+	}
+	while (num / div > 9)
+		div *= 10;
+	while (div != 0)
+	{
+		len += _putchar((num / div) + '0');
+		num %= div;
+		div /= 10;
+	}
+	return (len);
+}
