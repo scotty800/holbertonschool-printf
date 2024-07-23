@@ -29,4 +29,5 @@ int printf(const char *format, ...);
 int print_percent(va_list args);
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_non(char num1, char num2);
 #endif

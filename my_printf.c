@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int index = 0, j;
+	int count;
 	sp_t specifiers[] = {
 		{'c', print_char},
 		{'s', print_string},
@@ -36,6 +37,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 				j++;
+			}
+
+			if (specifiers[j].specifi == '\0')
+			{
+				count += print_non('%', '%');
+				count += _putchar(format[index]);
 			}
 		}
 		else
