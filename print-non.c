@@ -3,9 +3,11 @@
 #include "main.h"
 
 /**
- * print_string - Prints a string
- * @args: The va_list containing the string to print
- * Return: The number of characters printed, or 0 if the string is NULL.
+ * print_non - Prints characters when an unknown format specifier encountered
+ * @num1: The first character to print
+ * @num2: The second character to print
+ *
+ * Return: Always returns 0
  */
 
 int print_non(char num1, char num2)

@@ -10,5 +10,5 @@
  */
 void print_integer(va_list ap)
 {
-	printf("%d", va_arg(ap, int));
+	_printf("%d", va_arg(ap, int));
 }

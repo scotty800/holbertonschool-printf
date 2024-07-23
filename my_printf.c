@@ -3,25 +3,25 @@
 #include "main.h"
 
 /**
- * _printf - Custom implementation of printf function
- * @format: The format string containing format specifiers
- * @...: The values to format and print
- *  Return: The total number of characters printed
+ * print_format - Finds the corresponding function for a given format specifier
+ * @format: The format specifier to match
+ *
+ * Return: A pointer to the corresponding functionor NULL if no match is found
  */
 
-static int (*print_format(const char *format)) (va_list)
+static int (*print_format(const char *format))(va_list)
 {
 	int jindex = 0;
 
 	sp_t specifiers[] = {
-                {'c', print_char},
-                {'s', print_string},
-                {'%', print_percent},
-                {'\0', NULL}
+		{'c', print_char},
+		{'s', print_string},
+		{'%', print_percent},
+		{'\0', NULL}
 
-        };
+	};
 
-	while (specifiers[jindex].specifi != NULL)
+	while (specifiers[jindex].specifi != '\0')
 	{
 		if (specifiers[jindex].specifi == *format)
 		{
@@ -33,17 +33,24 @@ static int (*print_format(const char *format)) (va_list)
 	return (NULL);
 }
 
+/**
+ * _printf - Custom implementation of printf function
+ * @format: The format string containing format specifiers
+ * @...: The values to format and print
+ *  Return: The total number of characters printed
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int index = 0, j;
+	int index = 0;
 	int count = 0;
 	int (*print_func)(va_list args);
 
-	 if (!format)
-                return (-1);
+	if (!format)
+		return (-1);
 
-	 va_start(args, format);
+	va_start(args, format);
 
 	while (format && format[index])
 	{
@@ -55,15 +62,18 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 
-			strfunc = print_format(
-
-			if (specifiers[j].specifi == '\0')
+			print_func = print_format(&format[index]);
+			if (print_func != NULL)
 			{
-				count = count + print_non('%', format[index]);
+				count += print_func(args);
+			}
+			else
+			{
+				count += print_non('%', format[index]);
 			}
 		}
 		else
-			count = count + _putchar(format[index]);
+			count += write(1, &format[index], 1);
 		index++;
 	}
 	va_end(args);
