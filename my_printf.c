@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int index = 0, j;
 	int count = 0;
+
 	sp_t specifiers[] = {
 		{'c', print_char},
 		{'s', print_string},
@@ -41,8 +42,8 @@ int _printf(const char *format, ...)
 
 			if (specifiers[j].specifi == '\0')
 			{
-				count += print_non('%', '%');
-				count += _putchar(format[index]);
+				count = count + print_non('%', '%');
+				count = count + _putchar(format[index]);
 			}
 		}
 		else
