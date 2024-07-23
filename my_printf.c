@@ -20,15 +20,24 @@ int _printf(const char *format, ...)
 		{'s', print_string},
 		{'%', print_percent},
 		{'\0', NULL}
+
 	};
 
-	va_start(args, format);
+	 if (!format)
+                return (-1);
+
+	 va_start(args, format);
 
 	while (format && format[index])
 	{
 		if (format[index] == '%')
 		{
 			index++;
+			if (format[index] == '\0')
+			{
+				return (-1);
+			}
+
 			j = 0;
 			while (specifiers[j].specifi)
 			{
