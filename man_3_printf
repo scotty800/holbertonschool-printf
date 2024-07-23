@@ -1,0 +1,34 @@
+.TH my_printf.c 1 my_printf.c \-0.1
+.SH NAME
+.B _printf
+- +++++++++++++++++++++++++++++++++++++++++++++++
+.SH SYNOPSIS
+-_printf \-int _printf(const char *format, ...)
+.SH DESCRIPTION 
+.B my_printf.c
+
+\\\ backslash 
+
+\\n new line 
+
+\\" double quote 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.SH OPTIONS
+.TP
+.BI \-%c
+my_printf.c print character 
+.TP 
+.BI \-%s
+my_printf.c prints string
+.TP
+.BI \-%
+my_printf.c prints percents 
+.TP 
+.BI \-%d
+my_printf.c prints integer positive 
+.TP
+.BI \-%i
+my_printf.c prints prints integer negative 
+
