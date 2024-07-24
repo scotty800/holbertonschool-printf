@@ -76,7 +76,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-			count += write(1, format[index], 1);
+			count += write(1, &format[index], 1);
 		index++;
 	}
 	return (count);
