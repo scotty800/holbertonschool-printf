@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count = count + print_non('%', &format[index]);
+				count = count + print_non('%', format[index]);
 			}
 		}
 		else
