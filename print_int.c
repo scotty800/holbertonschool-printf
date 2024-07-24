@@ -11,32 +11,31 @@
 int print_int(va_list ap)
 {
 	int n = va_arg(ap, int);
-	int num,
+	unsigned int num,
 	int len = 0;
 	int div = 1;
 
 	if (n < 0)
 	{
 		len += _putchar('-');
-		n = -n;
+		num = -n;
 	}
 
 	tmp = num;
 
-	else if (tmp / 10)
+	else
 	{
-		div *= 10;
+		num = -n;
 	}
 
-	while (tmp / div)
-		tmp /= 10;
+	while (tmp / div > 9)
+		div *= 10;
 
-	while (tmp != div)
+	while (div != 0)
 	{
-		_putchar((num / div) % 10 + '0');
+		len += _putchar((num / div) + '0');
+		num %= div
 		div /= 10;
-		
-		len++;
 	}
 
 	return (len);
