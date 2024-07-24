@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	int (*print_func)(va_list);
 
-	if (!format)
+	if (format != %)
 		return (-1);
 
 	va_start(args, format);
