@@ -1,4 +1,4 @@
-.TH _printf "26 July 2024" 1 _printf \-0.1
+.TH _printf "26 July 2024" 1 _printf \-Library
 
 .SH NAME
 .B _printf
@@ -6,11 +6,13 @@
 
 .SH SYNOPSIS
 int _printf(const char *format, ...)
+
 #include <main.h>
 
 .SH DESCRIPTION 
 .B _printf
-is a custom implementation of the standard `printf` function. It takes a format string and a variable number of arguments, then outputs the formatted string to the standard output
+is a custom implementation of the standard `printf` function. It takes a format string and a variable number of arguments, then outputs the formatted string to the standard output he format string can contain 
+regular characters that are printed as they are, and format specifiers that start with the '%' character. The supported format specifiers and their corresponding argument types are: 
 
 .SH OPTIONS
 .TP
@@ -32,11 +34,12 @@ prints integer
 .SH RETURN VALUE
 The function returns the total number of characters printed. If an error occurs, the function returns \-1.
 
-SH EXAMPLES
+.SH EXAMPLES
+
 .B Example 1: Printing a character
 .PP
 .EX
-_printf("Character: %c\n", 'A');
+_printf("Character: %c \n", 'A');
 .EE
 
 .B Example 2: Printing a string
@@ -57,7 +60,22 @@ _printf("Integer: %d\n", 123);
 _printf("Percent: %%\n");
 .EE
 
+.SH SEE ALSO
+
+.BR printf /(3),
+
+.BR vprintf (3),
+
+.BR fprintf (3),
+
+.BR snprintf (3)
+
 .SH AUTHOR
+
+Written by 
+
 Yannis Ranguin
+
 Scotty Ndanga
+
 Fabio Dejieux
