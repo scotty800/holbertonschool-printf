@@ -66,7 +66,7 @@ int _printf(const char *format, ...)
 			}
 
 			print_func = print_format(&format[index]);
-			if (print_func != NULL)
+			if (print_func)
 			{
 				count += print_func(args);
 			}
