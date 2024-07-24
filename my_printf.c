@@ -61,7 +61,6 @@ int _printf(const char *format, ...)
 			index++;
 			if (format[index] == '\0')
 			{
-				va_end(args);
 				return (-1);
 			}
 
@@ -72,7 +71,8 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count = count + print_non('%', format[index]);
+				count = count + print_non('%');
+				count = count + _putchar(format[index]);
 			}
 		}
 		else
@@ -80,5 +80,6 @@ int _printf(const char *format, ...)
 
 		index++;
 	}
+	va_end(args);
 	return (count);
 }
