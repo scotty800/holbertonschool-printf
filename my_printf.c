@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 	int (*print_func)(va_list);
 
 	if (!format)
-		return (NULL);
+		return (-1);
 
 	va_start(args, format);
 
