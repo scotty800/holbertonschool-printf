@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 		if (format[index] == '%')
 		{
 			index++;
-			if (format[index] == '\0')
+			if (format == NULL)
 			{
 				return (-1);
 			}
