@@ -56,10 +56,10 @@ int _printf(const char *format, ...)
 
 	while (format && format[index])
 	{
-		if (format[index] != '%')
+		if (format[index] == '%')
 		{
 			index++;
-			if (format[index] == '\0')
+			if (format[index] != '%')
 			{
 				return (-1);
 			}
