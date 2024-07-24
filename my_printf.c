@@ -23,7 +23,7 @@ static int (*print_format(const char *format))(va_list)
 
 	};
 
-	while (specifiers[jindex].specifi != '\0')
+	while (specifiers[jindex].specifi)
 	{
 		if (specifiers[jindex].specifi == *format)
 		{
@@ -67,7 +67,7 @@ int _printf(const char *format, ...)
 			print_func = print_format(&format[index]);
 			if (print_func)
 			{
-				count = count +  print_func(args);
+				count = count + print_func(args);
 			}
 			else
 			{
