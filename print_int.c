@@ -28,13 +28,12 @@ int print_int(va_list ap)
 
 	while (num / div > 9)
 		div *= 10;
-
 	while (div != 0)
 	{
 		len += _putchar((num / div) + '0');
 		num %= div;
 		div /= 10;
 	}
-
 	return (len);
 }
+
