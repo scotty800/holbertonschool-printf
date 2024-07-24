@@ -68,15 +68,15 @@ int _printf(const char *format, ...)
 			print_func = print_format(&format[index]);
 			if (print_func)
 			{
-				count += print_func(args);
+				count = count +  print_func(args);
 			}
 			else
 			{
-				count += print_non('%', format[index]);
+				count = count + print_non('%', format[index]);
 			}
 		}
 		else
-			count += write(1, &format[index], 1);
+			count = count + write(1, &format[index], 1);
 		index++;
 	}
 	return (count);
