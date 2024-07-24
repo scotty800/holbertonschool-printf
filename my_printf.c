@@ -61,6 +61,7 @@ int _printf(const char *format, ...)
 			index++;
 			if (format[index] == '\0')
 			{
+				va_end(args);
 				return (-1);
 			}
 
@@ -78,6 +79,5 @@ int _printf(const char *format, ...)
 			count += write(1, &format[index], 1);
 		index++;
 	}
-	va_end(args);
 	return (count);
 }
