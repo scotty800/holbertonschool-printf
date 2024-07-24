@@ -11,7 +11,7 @@
 int print_int(va_list ap)
 {
 	int n = va_arg(ap, int);
-	int num;
+	unsigned int num;
 	int len = 0;
 	int div = 1;
 
