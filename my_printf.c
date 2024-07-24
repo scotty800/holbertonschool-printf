@@ -71,8 +71,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count = count + print_non('%');
-				count = count + write (1, &format[index], 1);
+				count = count + print_non('%', format[index]);
 			}
 		}
 		else
