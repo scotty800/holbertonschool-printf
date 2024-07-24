@@ -32,7 +32,7 @@ int print_int(va_list ap)
 	while (div != 0)
 	{
 		len += _putchar((num / div) + '0');
-		num %= div
+		num %= div;
 		div /= 10;
 	}
 
