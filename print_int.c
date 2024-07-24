@@ -21,14 +21,12 @@ int print_int(va_list ap)
 		num = -n;
 	}
 
-	tmp = num;
-
 	else
 	{
-		num = -n;
+		num = n;
 	}
 
-	while (tmp / div > 9)
+	while (num / div > 9)
 		div *= 10;
 
 	while (div != 0)
