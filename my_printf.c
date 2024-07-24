@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
 			index++;
 			if (format[index] == '\0')
 			{
-				return (NULL);
+				return (-1);
 			}
 
 			print_func = print_format(&format[index]);
