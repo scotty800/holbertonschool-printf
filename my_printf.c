@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int index = 0;
 	int count = 0;
-	int (*print_func)(va_list args);
+	int (*print_func)(va_list);
 
 	if (!format)
 		return (-1);
