@@ -1,4 +1,5 @@
 #include <stdarg.h>
+
 #include "main.h"
 
 /**
@@ -10,14 +11,18 @@
 int print_int(va_list ap)
 {
 	int n = va_arg(ap, int);
-	int num = n;
+	int num;
 	int len = 0;
 	int div = 1;
 
 	if (n < 0)
 	{
 		len += _putchar('-');
-		num = -num;
+		num = -n;
+	}
+	else
+	{
+		num = n;
 	}
 	while (num / div > 9)
 		div *= 10;
