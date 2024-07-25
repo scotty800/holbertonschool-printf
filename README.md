@@ -96,8 +96,8 @@ Check the [Man Page](https://github.com/scotty800/holbertonschool-printf/blob/ma
 ![Diagramme sans nom drawio](https://github.com/user-attachments/assets/11929c4a-2bfa-4813-a344-a9db72a46658)
 ### Author 
 
-Yannis Ranguin
+[Yannis Ranguin](https://github.com/Yannis95200)
 
-Scotty Ndanga
+[Scotty Ndanga](https://github.com/scotty800)
 
-Fabio Dejieux
+[Fabio Dejieux](https://github.com/Pizzapanda92)
