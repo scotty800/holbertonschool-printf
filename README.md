@@ -23,7 +23,79 @@ Operating System: Ubuntu 20.04 or similar
 Compiler: GCC
 
 Tools: git for version control
-### Usage Examples
+Print Character
+```
+#include "main.h"
+#include <stdio.h>
+
+int main(void)
+{
+    _printf("Character: %c \n", 'A');
+    return(0);
+}
+```
+Output 
+``` 
+Character A 
+```
+Print string
+
+```
+#include "main.h"
+#include <stdio.h>
+
+int main(void)
+{
+    _printf("String: %s\n", "Hello, world!");
+    return(0);
+}
+```
+Output
+```
+String: Hello, world!
+```
+
+Print Percent
+```
+#include "main.h"
+#include <stdio.h>
+
+int main(void)
+{
+    _printf("Percent: %%\n");
+    return(0);
+}
+```
+Output
+```
+Percent: %
+```
+Print Décimal/interger
+  ```
+#include "main.h"
+#include <stdio.h>
+int main(void)
+{
+int b;
+
+     b = _printf("Holberton School\n");
+    _printf("note: [%d/%i]\n", b, b);
+
+    return (0);
+}
+```
+Output
+```
+Holberton School 
+note: [20/20]
+```
+
 ### Man Page
-### Testing
 ### Flowchart
+### Author 
+
+Yannis Ranguin
+
+Scotty Ndanga
+
+Fabio Dejieux
