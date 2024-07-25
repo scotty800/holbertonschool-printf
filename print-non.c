@@ -12,15 +12,8 @@
 
 int print_non(char num1, char num2)
 {
-	if (num2  == '%')
-	{
-		write(1, &num2, 1);
-	}
-	else
-	{
 		write(1, &num1, 1);
 		write(1, &num2, 1);
-	}
 
-	return (0);
+		return (0);
 }
