@@ -93,6 +93,7 @@ note: [20/20]
 ### Man Page
 Check the [Man Page](https://github.com/scotty800/holbertonschool-printf/blob/main/man_3_printf)
 ### Flowchart
+![Diagramme sans nom drawio](https://github.com/user-attachments/assets/11929c4a-2bfa-4813-a344-a9db72a46658)
 ### Author 
 
 Yannis Ranguin
