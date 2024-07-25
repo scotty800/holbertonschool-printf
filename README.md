@@ -91,7 +91,7 @@ note: [20/20]
 ```
 
 ### Man Page
-https://github.com/scotty800/holbertonschool-printf/blob/main/man_3_printf
+Check the [Man Page](https://github.com/scotty800/holbertonschool-printf/blob/main/man_3_printf)
 ### Flowchart
 ### Author 
 
