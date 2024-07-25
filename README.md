@@ -15,7 +15,7 @@ The printf function is a variadic function, meaning it can accept a variable num
 
 The code must be compiled this way:
 
-*$ gcc -Wall -Werror -Wextra -pedantic .c
+*$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c -O _printf
 ### Requirements
 
 Operating System: Ubuntu 20.04 or similar
