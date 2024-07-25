@@ -24,6 +24,7 @@ Compiler: GCC
 
 Tools: github 
 
+### Usage Example
 Print Character
 ```
 #include "main.h"
